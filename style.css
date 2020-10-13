@@ -18,6 +18,13 @@ body {
     border: 1px solid blue;
     padding: 0;
 }
+@media (max-width: 768px) {
+    #main {
+        width: 80%;
+        border: 1px solid blue;
+        padding: 0;
+    }
+}
 div.screen {
     margin: 4% 5%;
 }
