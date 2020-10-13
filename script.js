@@ -1,19 +1,22 @@
+// INITIALIZING VARIABLES
 let answer = [], result, cAns = [];
 var i = 0, id = 1, resVal = 0;
 
-    let ids = document.querySelector('#ids');
-    let qPane = document.querySelector('#q-pane');
-    let options = document.querySelectorAll('.opt');
-    let opCnt = document.querySelectorAll('.option');
-    let optOne = document.querySelector('.option-one');
-    let optTwo = document.querySelector('.option-two');
-    let optThree = document.querySelector('.option-three');
-    let prevBtn = document.querySelector('.prev');
-    let nextBtn = document.querySelector('.nxt');
-    let skipBtn = document.querySelector('.skip');
-    let finishBtn = document.querySelector('.finish');
+// DECLARING DOM ELEMENTS
+let ids = document.querySelector('#ids');
+let qPane = document.querySelector('#q-pane');
+let options = document.querySelectorAll('.opt');
+let opCnt = document.querySelectorAll('.option');
+let optOne = document.querySelector('.option-one');
+let optTwo = document.querySelector('.option-two');
+let optThree = document.querySelector('.option-three');
+let prevBtn = document.querySelector('.prev');
+let nextBtn = document.querySelector('.nxt');
+let skipBtn = document.querySelector('.skip');
+let finishBtn = document.querySelector('.finish');
+let refreshhBtn = document.querySelector('.refresh');
 
-
+// BIG ARRAY OF DATA NEEDED FOR A SESSION
 let questions = [ 
     {question: "what did God create on the first day", options: [ "day and night", "stones", "book" ], answer: "day and night"}, 
     {question: "where was Jesus born", options: [ "guest house", "hotel", "manger" ], answer: "manger"},
@@ -21,6 +24,8 @@ let questions = [
     {question: "how many Commandments were given to Moses on mount Sinai", options: [ "2", "10", "15" ], answer: "10"},
     {question: "who was the angel that appeared to Mary", options: [ "Angel Micheal", "Angel Gabriel", "Angel Micah" ], answer: "Angel Gabriel"}
 ];
+
+// GETTING THE OPTIONS VALUE
 {
     for (let j = 0; j < options.length; j++) { 
         let viewButton = options[j]; 
@@ -37,6 +42,7 @@ let questions = [
     }
 }
 
+// FUNCTION TO PASS IN THE DATA FROM THE BIG ARRAY TO THEIR RESPECTIVE DATA FIELD
 let assignValues = () => {
     qPane.innerHTML = questions[i].question;
     ids.innerHTML = `Question ${i + 1}`;
@@ -46,6 +52,8 @@ let assignValues = () => {
     console.log(options[1].innerHTML);
 }
 let checkId = 0;
+
+// FUNCTION FOR THE SCOREBOARD
 let checkAnswer = () => {
     answer[checkId] = optionChosen;
     cAns[checkId] = questions[checkId].answer;
@@ -66,10 +74,13 @@ let getResult = () => {
     }
     alert(`you got ${resVal} right`);
 }
+
+// ALL BUTTON EVENT LISTENERS
 {
     prevBtn.style.display = "inline-block";
     prevBtn.disabled = true;
     finishBtn.style.display = "none";
+    refreshBtn.style.display = "none";
     assignValues();
     
     nextBtn.onclick = () => {
@@ -109,9 +120,12 @@ let getResult = () => {
     finishBtn.onclick = () => {
         checkAnswer();
         setTimeout (getResult(), 5000);
+        finishBtn.style.display = "none";
+        prevBtn.style.display = "none";
+        skipBtn.style.display = "none";
+        refreshBtn.style.display = "inline-block";
+    }
+    refreshBtn.onclick = () => {
+        window.location.replace('index.html');
     }
 }
-// const assignValues = () => {
-    
-// }aler
-alert('bgg');
