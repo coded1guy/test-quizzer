@@ -14,7 +14,7 @@ let prevBtn = document.querySelector('.prev');
 let nextBtn = document.querySelector('.nxt');
 let skipBtn = document.querySelector('.skip');
 let finishBtn = document.querySelector('.finish');
-let refreshhBtn = document.querySelector('.refresh');
+let refreshBtn = document.querySelector('.refresh');
 
 // BIG ARRAY OF DATA NEEDED FOR A SESSION
 let questions = [ 
