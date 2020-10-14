@@ -1,0 +1,13 @@
+div.choose-mode {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 50vh;
+}
+div.choose-mode > button {
+    margin: 1.7% 0;
+    padding: 2.8% 4%;
+    border: none;
+    border-radius: 5px;
+}

@@ -5,11 +5,46 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>game</title>
     <link rel="stylesheet" href="../main.css">
-    <link rel="stylesheet" href="style/mode.css">
+    <link rel="stylesheet" href="../style/mode.css">
 </head>
 <body>
     <main id="main">
-        
+        <div class="container">
+            <div>Begin Game</div>
+            <div>
+                <legend>PLAYERS</legend>
+                <form>
+                    <div>
+                        <input type="radio" id="rad1" name="player">
+                        <span>Single Player</span>
+                    </div>
+                    <div>
+                        <input type="radio" id="rad2" name="player">
+                        <span>Multiple Players</span>
+                    </div>
+                </form>
+            </div>
+            <div>
+                <legend for="ip1">SPECIFIC NUMBER OF QUESTIONS</legend>
+                <input type="text" id="ip1">
+            </div>
+            <div>
+                <legend for="ip2">CATEGORY</legend>
+                <select id="ip2">
+                    <option>History & Geography</option>
+                    <option>New Testament</option>
+                    <option>Old Testament</option>
+                    <option>People</option>
+                    <option>Plants & Animals</option>
+                    <option>Prophets & Prophecy</option>
+                    <option>Wisdom</option>
+                </select>
+            </div>
+            <div>
+                <button class="load">Load</button>
+                <button class="close">Close</button>
+            </div>
+        </div>
     </main>
     <script src="../js/mode.js">
     </script>
