@@ -1,5 +1,5 @@
 // INITIALIZING VARIABLES
-let answer = [], result, cAns = [];
+let answer = [], cAns = [], result;
 var i = 0, id = 1, resVal = 0;
 
 // DECLARING DOM ELEMENTS
@@ -128,4 +128,31 @@ let getResult = () => {
     refreshBtn.onclick = () => {
         window.location.replace('index.html');
     }
+}
+
+
+
+
+
+{
+    let bigD = [
+        {"id":35,"category":"w","question":"Abraham has how many wives.","answer":"2 - Sarah & Keturah",
+        "reference":"Gen.12:5, 25:1","option1":"2","option2":"3","option3":"1"},{"id":49,"category":"w",
+        "question":"How old was Ishmael when Isaac was born?","answer":"14 years","reference":" Gen. 16:16, 21:5",
+        "option1":"14 years","option2":"13 years","option3":"15 years"},
+        {"id":14,"category":"w","question":"He served as human guide to the Israelite on their journey from mount Sinai toward Canaan",
+        "answer":"Hobab","reference":"Num.10:29-33","option1":"Levi","option2":"Hobab","option3":"Joshua"},
+        {"id":21,"category":"w","question":"What is it that is common to the life of Jesus, Jonah & Paul?",
+        "answer":"3 days","reference":" Jesus: Matt. 12:40 Jonah: Jonah 1:17 Paul: Act 9:9","option1":"4 hours",
+        "option2":"3 days","option3":"3 minutes"},
+        {"id":7,"category":"w","question":"Deborah judged Israel for how many years?","answer":"40years",
+        "reference":" Judges 5:31","option1":"30 years","option2":"40 years","option3":"35 years"},
+        {"id":28,"category":"w","question":"Paul wrote how many Epistles? ","answer":"13","reference":"","option1":"11",
+        "option2":"13","option3":"14"},
+        {"id":42,"category":"w","question":"Recite Proverbs 4 : 23",
+        "answer":"Keep thy heart with all diligence;\nFor out of it?are?the issues of life.","reference":"Proverbs 4:23",
+        "option1":"","option2":"","option3":""}
+    ]
+    console.log(bigD);
+    console.log(bigD.id);
 }
