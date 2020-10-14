@@ -1,0 +1,27 @@
+* {
+    box-sizing: border-box;
+}
+html, body {
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    font-size: 17px;
+}
+body {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#main {
+    width: 44%;
+    border: 1px solid blue;
+    padding: 0;
+}
+@media (max-width: 768px) {
+    #main {
+        width: 80%;
+        border: 1px solid blue;
+        padding: 0;
+    }
+}
