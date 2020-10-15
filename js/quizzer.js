@@ -68,7 +68,6 @@ let counting = () => {
                     opCnt[0].style.background = "rgb(17, 163, 29)";
                     opCnt[1].style.background = "#f5f5dc";
                     opCnt[2].style.background = "#f5f5dc";
-                    console.log(options[0].innerHTML);
                 }  else if(options[0].innerHTML !== ans) {
                     opCnt[0].style.background = "red";
                 }
@@ -84,7 +83,6 @@ let counting = () => {
                     opCnt[1].style.background = "rgb(17, 163, 29)";
                     opCnt[0].style.background = "#f5f5dc";
                     opCnt[2].style.background = "#f5f5dc";
-                    console.log(options[1].innerHTML);
                 }  else if(options[1].innerHTML !== ans) {
                     opCnt[1].style.background = "red";
                 }
@@ -100,7 +98,6 @@ let counting = () => {
                     opCnt[2].style.background = "rgb(17, 163, 29)";
                     opCnt[0].style.background = "#f5f5dc";
                     opCnt[1].style.background = "#f5f5dc";
-                    console.log(options[2].innerHTML);
                 } else if(options[2].innerHTML !== ans) {
                     opCnt[2].style.background = "red";
                 }
@@ -136,7 +133,6 @@ let assignValues = () => {
     optTwo.innerHTML = questions[i].option2;
     optThree.innerHTML = questions[i].option3;
     ans = questions[i].answer;
-    console.log(ans);
     opCnt[0].style.background = "#f5f5dc";
     opCnt[1].style.background = "#f5f5dc";
     opCnt[2].style.background = "#f5f5dc";
@@ -146,22 +142,14 @@ let assignValues = () => {
 let checkAnswer = () => {
     answer[checkId] = optionChosen;
     cAns[checkId] = questions[checkId].answer;
-    console.log(answer);
-    console.log(cAns);
-    console.log(checkId);
     checkId++;
-    console.log(answer.length);
 }
 let getResult = () => {
     for(let a= 0; a< answer.length; a++) {
-        console.log(answer[a]);
-        console.log(cAns[a]);
         if(answer[a] === cAns[a]) {
             resVal ++;
-            console.log(resVal);
         } else {
             resVal += 0;
-            console.log(resVal);
         }
     }
     alert(`you got ${resVal} right`);
