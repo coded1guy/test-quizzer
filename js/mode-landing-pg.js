@@ -1,5 +1,3 @@
-let intMode;
-
 // FOR THE MODE-LANDING-BG.HTML PAGE
 let modeSet1 = document.querySelector('.time-based-game');
 let modeSet2 = document.querySelector('.no-based-game');
@@ -13,7 +11,7 @@ let goToTheProperty = (value) => {
     } else if(value === "question-no based Game") {
         console.log("2 is true");
     }
-    intMode = value;
+    localStorage.setItem("mode", value);
     console.log('sop');
 }
 

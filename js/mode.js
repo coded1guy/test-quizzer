@@ -1,6 +1,6 @@
-let intMode = localStorage.getItem("mode");
+let modeSet = "bi", details, playerType, categorytype;
+// FOR THE MODE.HTML FILE localStorage.getItem("mode")
 
-// FOR THE MODE.HTML FILE
 let radOne = document.querySelector('#rad1');
 let radTwo = document.querySelector('#rad2');
 let inputOne = document.querySelector('#ip1');
@@ -9,19 +9,37 @@ let loadBtn = document.querySelector('#load');
 let closeBtn = document.querySelector('#close');
 
 inputTwo.value = " ";
-console.log(inputTwo.value);
-inputTwo.oninput = () => {
-    console.log(inputTwo.value);
-}
     
 loadBtn.onclick = () => {
-    window.location.assign('quiz.html');
+    if(modeType !== "" && detailInfo !== "" && playerType !== "" && categorytype !== "") {
+        let modeData = { 
+            modeType : modeSet, 
+            detailInfo : details, 
+            playerType : playerNo, 
+            categorytype : category
+        };
+        let data = JSON.stringify(modeData);
+        console.log(data);
+    }
+    //window.location.assign('quiz.html');
 };
 closeBtn.onclick = () => {
     window.location.assign('mode-landing-pg.html');
 };
 
+radOne.onchange = () => {
+    details = "Single-player";
+}
+radTwo.onchange = () => {
+    details = "multiple-players";
+}
 
+inputOne.oninput = () => {
+    playerNo = inputOne.value;
+}
+inputTwo.oninput = () => {
+    category = inputTwo.value;
+}
 
 // PARAMETERS THAT WILL BE GOTTEN
 // intMode - this is the mode that will be sent to the backend;
