@@ -1,8 +1,10 @@
 // INITIALIZING VARIABLES
-let answer = [], cAns = [], result, ans;
+let answer = [], cAns = [], checkId = 0, currentCount, result, ans, optionChosen;
 var i = 0, id = 1, resVal = 0;
 
 // DECLARING DOM ELEMENTS
+let category = document.querySelector('#category');
+let counter = document.querySelector('#count-down');
 let ids = document.querySelector('#ids');
 let qPane = document.querySelector('#q-pane');
 let options = document.querySelectorAll('.opt');
@@ -36,6 +38,23 @@ let questions = [
     "option1":"","option2":"","option3":""}
 ];
 
+// QUIZ HEADER FUNCTIONS
+let counting = () => {
+    counter.innerHTML = 10;
+    currentCount = 10;
+    let int = setInterval(() => {
+        currentCount--;
+        counter.innerHTML = currentCount;
+        if(currentCount === 0) {
+            clearInterval(int);
+            setTimeout(() => {
+                counter.innerHTML = 10;
+                skipBtn.click();
+            }, 1000);
+        }
+    }, 1000);
+}
+
 // GETTING THE OPTIONS VALUE
 {
     // FUNCTION
@@ -44,23 +63,56 @@ let questions = [
             opCnt[0].style.background = " rgb(206, 206, 136)";
             opCnt[1].style.background = "#f5f5dc";
             opCnt[2].style.background = "#f5f5dc";
+            setTimeout(() => {
+                if(options[0].innerHTML === ans) {
+                    opCnt[0].style.background = "rgb(17, 163, 29)";
+                    opCnt[1].style.background = "#f5f5dc";
+                    opCnt[2].style.background = "#f5f5dc";
+                    console.log(options[0].innerHTML);
+                }  else if(options[0].innerHTML !== ans) {
+                    opCnt[0].style.background = "red";
+                }
+            }, 200);
+            setTimeout(() => {nextBtn.click()}, 1000);
         }
         opCnt[1].onclick = () => {
             opCnt[1].style.background = " rgb(206, 206, 136)";
             opCnt[0].style.background = "#f5f5dc";
             opCnt[2].style.background = "#f5f5dc";
+            setTimeout(() => {
+                if(options[1].innerHTML === ans) {
+                    opCnt[1].style.background = "rgb(17, 163, 29)";
+                    opCnt[0].style.background = "#f5f5dc";
+                    opCnt[2].style.background = "#f5f5dc";
+                    console.log(options[1].innerHTML);
+                }  else if(options[1].innerHTML !== ans) {
+                    opCnt[1].style.background = "red";
+                }
+            }, 200);
+            setTimeout(() => {nextBtn.click()}, 1000);
         }
         opCnt[2].onclick = () => {
             opCnt[2].style.background = " rgb(206, 206, 136)";
             opCnt[0].style.background = "#f5f5dc";
             opCnt[1].style.background = "#f5f5dc";
+            setTimeout(() => {
+                if(options[2].innerHTML === ans) {
+                    opCnt[2].style.background = "rgb(17, 163, 29)";
+                    opCnt[0].style.background = "#f5f5dc";
+                    opCnt[1].style.background = "#f5f5dc";
+                    console.log(options[2].innerHTML);
+                } else if(options[2].innerHTML !== ans) {
+                    opCnt[2].style.background = "red";
+                }
+            }, 200);
+            setTimeout(() => {nextBtn.click()}, 1000);
         }
     }
 
     // LOOP
     for (let j = 0; j < options.length; j++) { 
         let viewButton = options[j]; 
-        viewButton.addEventListener('click', () => { 
+        viewButton.addEventListener('click', () => {
             optionButtonStyle();
             optionChosen = options[j].innerHTML;
         }); 
@@ -68,43 +120,27 @@ let questions = [
     for (let j = 0; j < opCnt.length; j++) { 
         let pushBtn = opCnt[j]; 
         pushBtn.addEventListener('click', () => { 
-            //pushBtn.style.background = "beige";
             options[j].click();
         }); 
     }
 }
 
-{
-    let validateButtonStyle = () => {
-        if(opCnt[0].innerHTML === ans) {
-            opCnt[0].style.background = "rgb(17, 163, 29)";
-            opCnt[1].style.background = "#f5f5dc";
-            opCnt[2].style.background = "#f5f5dc";
-        } else if(opCnt[1].innerHTML === ans) {
-            opCnt[1].style.background = "rgb(17, 163, 29)";
-            opCnt[0].style.background = "#f5f5dc";
-            opCnt[2].style.background = "#f5f5dc";
-        } else if(opCnt[2].innerHTML === ans) {
-            opCnt[2].style.background = "rgb(17, 163, 29)";
-            opCnt[0].style.background = "#f5f5dc";
-            opCnt[1].style.background = "#f5f5dc";
-        }
-    }
-}
 
 // FUNCTION TO PASS IN THE DATA FROM THE BIG ARRAY TO THEIR RESPECTIVE DATA FIELD
 let assignValues = () => {
+    category.innerHTML = questions[i].category;
+    ids.innerHTML = `${i + 1} / ${questions.length} questions`;
+    counting();
     qPane.innerHTML = questions[i].question;
-    ids.innerHTML = `Question ${i + 1}`;
-    let optionUn = questions[i].option1;
-    let optionDuex = questions[i].option2;
-    let optionTrois = questions[i].option3;
-    optOne.innerHTML = optionUn;
-    optTwo.innerHTML = optionDuex;
-    optThree.innerHTML = optionTrois;
-    console.log(options[1].innerHTML);
+    optOne.innerHTML = questions[i].option1;
+    optTwo.innerHTML = questions[i].option2;
+    optThree.innerHTML = questions[i].option3;
+    ans = questions[i].answer;
+    console.log(ans);
+    opCnt[0].style.background = "#f5f5dc";
+    opCnt[1].style.background = "#f5f5dc";
+    opCnt[2].style.background = "#f5f5dc";
 }
-let checkId = 0;
 
 // FUNCTION FOR THE SCOREBOARD
 let checkAnswer = () => {
@@ -114,6 +150,7 @@ let checkAnswer = () => {
     console.log(cAns);
     console.log(checkId);
     checkId++;
+    console.log(answer.length);
 }
 let getResult = () => {
     for(let a= 0; a< answer.length; a++) {
@@ -122,8 +159,10 @@ let getResult = () => {
         if(answer[a] === cAns[a]) {
             resVal ++;
             console.log(resVal);
+        } else {
+            resVal += 0;
+            console.log(resVal);
         }
-
     }
     alert(`you got ${resVal} right`);
 }
@@ -135,10 +174,9 @@ let getResult = () => {
     finishBtn.style.display = "none";
     refreshBtn.style.display = "none";
     assignValues();
-    
     nextBtn.onclick = () => {
         i++;
-        prevBtn.disabled = false;
+        prevBtn.disabled = true;
         if(i >= questions.length - 1) {
             nextBtn.style.display = "none";
             finishBtn.style.display = "inline-block";
@@ -161,7 +199,7 @@ let getResult = () => {
     
     skipBtn.onclick = () => {
         i++;
-        prevBtn.disabled = false;
+       // prevBtn.disabled = false;
         prevBtn.style.display = "inline-block";
         if(i >= questions.length - 1) {
             nextBtn.style.display = "none";
