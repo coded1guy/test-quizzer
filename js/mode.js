@@ -15,18 +15,21 @@ let modeSet2 = document.querySelector('.no-based-game');
 //     }
 // }
 
+
 let goToTheProperty = (value) => {
     //window.location.assign('mode.html');
     console.log('start');
-    if(this.innerHTML === "time based Game") {
+    if(value === "time based Game") {
         console.log("1 is true");
-        document.body.style.background = "blue";
-    } else if(this.innerHTML === "question-no based Game") {
+    } else if(value === "question-no based Game") {
         console.log("2 is true");
-        document.body.style.background = "red";
     }
     console.log('sop');
 }
 
-modeSet1.onclick = () => {goToTheProperty("time based Game"); console.log(this.innerHTML);};
-modeSet2.onclick = () => {goToTheProperty()};
+modeSet1.onclick = () => {
+    goToTheProperty("time based Game");
+};
+modeSet2.onclick = () => {
+    goToTheProperty("question-no based Game");
+};
