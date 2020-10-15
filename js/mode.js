@@ -17,7 +17,7 @@ let modeSet2 = document.querySelector('.no-based-game');
 
 
 let goToTheProperty = (value) => {
-    //window.location.assign('mode.html');
+    window.location.assign('mode.html');
     console.log('start');
     if(value === "time based Game") {
         console.log("1 is true");
