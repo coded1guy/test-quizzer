@@ -1,6 +1,7 @@
 let modeSet = localStorage.getItem("mode"), details, playerType, categorytype;
 let InpOneModSel = document.querySelector('#d-parameter');
-
+console.log(modeSet);
+console.log(modeSet.length);
 let inputTemplate1 = `<legend for="ip1">SPECIFIC AMOUNT OF TIME</legend> <input type="text" id="ip1">`;
 let inputTemplate2 = `<legend for="ip1">SPECIFIC NUMBER OF QUESTIONS</legend> <input type="text" id="ip1">`;
 
@@ -23,7 +24,7 @@ let closeBtn = document.querySelector('#close');
 inputTwo.value = " ";
     
 loadBtn.onclick = () => {
-    if(modeType !== "" && detailInfo !== "" && playerType !== "" && categorytype !== "") {
+    if(modeSet.length > 0 && details.length > 0 && playerNo.length > 0 && category.length > 0) {
         let modeData = { 
             modeType : modeSet, 
             detailInfo : details, 
