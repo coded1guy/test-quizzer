@@ -2,8 +2,8 @@ let radOne = document.querySelector('#rad1');
 let radTwo = document.querySelector('#rad2');
 let inputOne = document.querySelector('#ip1');
 let inputTwo = document.querySelector('#ip2');
-let loadBtn = document.querySelector('.load');
-let closeBtn = document.querySelector('.close');
+let loadBtn = document.querySelector('#load');
+let closeBtn = document.querySelector('#close');
 let modeSet1 = document.querySelector('.time-based-game');
 let modeSet2 = document.querySelector('.no-based-game');
 
@@ -37,7 +37,7 @@ modeSet2.onclick = () => {
 
 loadBtn.onclick = () => {
     window.location.assign('quiz.html');
-}
+};
 closeBtn.onclick = () => {
     window.location.assign('mode-landing-pg.html');
-} 
+};
