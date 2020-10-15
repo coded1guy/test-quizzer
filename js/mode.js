@@ -33,3 +33,11 @@ modeSet1.onclick = () => {
 modeSet2.onclick = () => {
     goToTheProperty("question-no based Game");
 };
+
+
+loadBtn.onclick = () => {
+    window.location.assign('quiz.html');
+}
+closeBtn.onclick = () => {
+    window.location.assign('mode-landing-pg.html');
+} 
