@@ -1,5 +1,17 @@
-let modeSet = "bi", details, playerType, categorytype;
-// FOR THE MODE.HTML FILE localStorage.getItem("mode")
+let modeSet = localStorage.getItem("mode"), details, playerType, categorytype;
+let InpOneModSel = document.querySelector('#d-parameter');
+
+let inputTemplate1 = `<legend for="ip1">SPECIFIC AMOUNT OF TIME</legend> <input type="text" id="ip1">`;
+let inputTemplate2 = `<legend for="ip1">SPECIFIC NUMBER OF QUESTIONS</legend> <input type="text" id="ip1">`;
+
+if(modeSet === "time based Game") {
+    InpOneModSel.innerHTML = inputTemplate1;
+} else if(modeSet === "question-no based Game") {
+    InpOneModSel.innerHTML = inputTemplate2;
+}
+
+
+// FOR THE MODE.HTML FILE 
 
 let radOne = document.querySelector('#rad1');
 let radTwo = document.querySelector('#rad2');
