@@ -1,5 +1,20 @@
+div.header {
+    width: 100%;
+    margin: 2% 0;
+    padding: 4%;
+    border-bottom: 1px solid pink;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+div.header > span > span#category {
+    text-transform: uppercase;
+}
 div.screen {
-    margin: 4% 5%;
+    border: 1px solid pink;
+    border-radius: 5px;
+    margin: 4% 3%;
+    padding: 3% 4%;
 }
 div.q-pane {
     font-size: 22px;
@@ -28,6 +43,9 @@ div.options > button.option {
     background: #f5f5dc;
     border: 1px solid pink;
     border-radius: 5px;
+}
+div.options > button.option:hover {
+    cursor: pointer;
 }
 div.btn-sec {
     display: flex;
