@@ -1,3 +1,4 @@
+let intMode;
 let radOne = document.querySelector('#rad1');
 let radTwo = document.querySelector('#rad2');
 let inputOne = document.querySelector('#ip1');
@@ -24,6 +25,7 @@ let goToTheProperty = (value) => {
     } else if(value === "question-no based Game") {
         console.log("2 is true");
     }
+    intMode = value;
     console.log('sop');
 }
 
@@ -41,3 +43,5 @@ loadBtn.onclick = () => {
 closeBtn.onclick = () => {
     window.location.assign('mode-landing-pg.html');
 };
+// PARAMETERS THAT WILL BE GOTTEN
+// intMode - this is the mode that will be sent to the backend;
