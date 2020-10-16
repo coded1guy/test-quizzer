@@ -1,5 +1,5 @@
 // INITIALIZING VARIABLES
-let answer = [], cAns = [], checkId = 0, currentCount, result, ans, optionChosen;
+let answer = [], cAns = [], checkId = 0, currentCount = 10, result, ans, optionChosen;
 var i = 0, id = 1, resVal = 0;
 
 // DECLARING DOM ELEMENTS
@@ -39,21 +39,31 @@ let questions = [
 ];
 
 // QUIZ HEADER FUNCTIONS
-let counting = () => {
+let timer;
+
+
+let startCounting = () => {
     counter.innerHTML = 10;
     currentCount = 10;
-    let int = setInterval(() => {
+    timer = setInterval(() => {
         currentCount--;
         counter.innerHTML = currentCount;
         if(currentCount === 0) {
-            clearInterval(int);
+            clearInterval(timer);
             setTimeout(() => {
-                counter.innerHTML = 10;
                 skipBtn.click();
+                counter.innerHTML = 10;
+                currentCount = 10;
             }, 1000);
         }
     }, 1000);
-}
+}; startCounting();
+let stopCounting = () => {
+        clearInterval(timer);
+        counter.innerHTML = 10;
+        currentCount = 10;
+        startCounting();
+}; 
 
 // GETTING THE OPTIONS VALUE
 {
@@ -127,7 +137,7 @@ let counting = () => {
 let assignValues = () => {
     category.innerHTML = questions[i].category;
     ids.innerHTML = `${i + 1} / ${questions.length} questions`;
-    counting();
+    stopCounting();
     qPane.innerHTML = questions[i].question;
     optOne.innerHTML = questions[i].option1;
     optTwo.innerHTML = questions[i].option2;
