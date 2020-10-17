@@ -1,14 +1,14 @@
-// let sendRequestDetails = () => {
-//     let xhr = new XMLHttpRequest();
-//     xhr.open('GET', 'test-file.txt', true);
+let sendRequestDetails = () => {
+    let xhr = new XMLHttpRequest();
+    xhr.open('GET', 'test-file.txt', true);
 
-//     xhr.onload = () => {
-//         if(this.status === 200) {
-//             console.log(this.responseText);
-//         }
-//     }
-//     xhr.send();
-// };
+    xhr.onload = () => {
+        if(this.status === 200) {
+            console.log(this.responseText);
+        }
+    }
+    xhr.send();
+};
 
 let modeSet = localStorage.getItem("mode"), details, playerType, categorytype;
 let InpOneModSel = document.querySelector('#d-parameter');
