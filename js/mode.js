@@ -22,7 +22,19 @@ let loadBtn = document.querySelector('#load');
 let closeBtn = document.querySelector('#close');
 
 inputTwo.value = " ";
-    
+
+let sendRequestDetails = () => {
+    let xhr = new XMLHttpRequest();
+    xhr.open('GET', 'test-file.txt', true);
+
+    xhr.onload = () => {
+        if(this.status == 200) {
+            console.log(this.responseText);
+        }
+    }
+    xhr.send();
+}; sendRequestDetails();
+
 loadBtn.onclick = () => {
     if(modeSet.length > 0 && details.length > 0 && playerNo.length > 0 && category.length > 0) {
         let modeData = { 
