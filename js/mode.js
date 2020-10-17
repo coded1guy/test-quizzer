@@ -1,3 +1,15 @@
+// let sendRequestDetails = () => {
+//     let xhr = new XMLHttpRequest();
+//     xhr.open('GET', 'test-file.txt', true);
+
+//     xhr.onload = () => {
+//         if(this.status === 200) {
+//             console.log(this.responseText);
+//         }
+//     }
+//     xhr.send();
+// };
+
 let modeSet = localStorage.getItem("mode"), details, playerType, categorytype;
 let InpOneModSel = document.querySelector('#d-parameter');
 console.log(modeSet);
@@ -23,29 +35,18 @@ let closeBtn = document.querySelector('#close');
 
 inputTwo.value = " ";
 
-let sendRequestDetails = () => {
-    let xhr = new XMLHttpRequest();
-    xhr.open('GET', 'test-file.txt', true);
-
-    xhr.onload = () => {
-        if(this.status == 200) {
-            console.log(this.responseText);
-        }
-    }
-    xhr.send();
-}; sendRequestDetails();
-
 loadBtn.onclick = () => {
-    if(modeSet.length > 0 && details.length > 0 && playerNo.length > 0 && category.length > 0) {
-        let modeData = { 
-            modeType : modeSet, 
-            detailInfo : details, 
-            playerType : playerNo, 
-            categorytype : category
-        };
-        let data = JSON.stringify(modeData);
-        console.log(data);
-    }
+    // if(modeSet.length > 0 && details.length > 0 && playerNo.length > 0 && category.length > 0) {
+    //     let modeData = { 
+    //         modeType : modeSet, 
+    //         detailInfo : details, 
+    //         playerType : playerNo, 
+    //         categorytype : category
+    //     };
+    //     let data = JSON.stringify(modeData);
+    //     console.log(data);
+    // }
+    sendRequestDetails();
     //window.location.assign('quiz.html');
 };
 closeBtn.onclick = () => {
